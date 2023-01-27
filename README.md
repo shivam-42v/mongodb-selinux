@@ -47,8 +47,8 @@ on a supported system.
 
 In order for mongod service to run, following assumptions are made:
 
-- daemon binary is installed in `/usr/bin/mongod`
-- database is located in `/var/lib/mongo`
+- daemon binary is installed in `/bin/mongod`
+- database is located in `/data`
 - log file must be located in `/var/log/mongodb/`
 - runtime data (PID) should be in `/var/run/mongodb/` or `/run/mongodb/`. On RHEL systems
 `/var/run` is a symbolic link to `/run`. This should not be changed

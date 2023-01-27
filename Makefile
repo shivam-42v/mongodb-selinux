@@ -37,7 +37,7 @@ install: build/$(selinuxvariant)/mongodb.pp
 	/usr/sbin/semodule --priority 200 --store $(selinuxvariant) --install $(datadir)/selinux/$(selinuxvariant)/mongodb.pp
 	/sbin/fixfiles -R mongodb-enterprise-server restore || true
 	/sbin/fixfiles -R mongodb-org-server restore || true
-	/sbin/restorecon -R /var/lib/mongo || true
+	/sbin/restorecon -R /data || true
 	/sbin/restorecon -R /run/mongodb || true
 
 .PHONY: uninstall
@@ -45,7 +45,7 @@ uninstall:
 	/usr/sbin/semodule --store $(selinuxvariant) --priority 200 --remove mongodb
 	/sbin/fixfiles -R mongodb-enterprise-server restore || true
 	/sbin/fixfiles -R mongodb-org-server restore || true
-	test -d /var/lib/mongo && /sbin/restorecon -R /var/lib/mongo || true
+	test -d /data && /sbin/restorecon -R /data || true
 	test -d /run/mongo && /sbin/restorecon -R /run/mongodb || true
 
 
